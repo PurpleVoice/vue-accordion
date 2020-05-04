@@ -4,17 +4,15 @@ module.exports = {
   },
   extends: [
     '@vue/standard',
-    'plugin:vue/strongly-recommended'
+    'plugin:vue/strongly-recommended',
+    '@vue/prettier'
   ],
   overrides: [
     {
       env: {
         jest: true
       },
-      files: [
-        '**/__tests__/*.{j,t}s?(x)',
-        '**/tests/unit/**/*.spec.{j,t}s?(x)'
-      ]
+      files: ['**/__tests__/*.{j,t}s?(x)', '**/tests/unit/**/*.spec.{j,t}s?(x)']
     }
   ],
   parserOptions: {
@@ -25,39 +23,69 @@ module.exports = {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'warn',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'warn',
     'object-curly-spacing': ['error', 'never'],
+    'prettier/prettier': [
+      'warn',
+      {
+        bracketSpacing: false,
+        semi: false,
+        singleQuote: true,
+        trailingComma: 'none'
+      }
+    ],
     quotes: ['error', 'single'],
-    'sort-keys': ['warn', 'asc', {
-      caseSensitive: false, natural: true
-    }],
-    'vue/html-closing-bracket-newline': ['error', {
-      multiline: 'always',
-      singleline: 'never'
-    }],
-    'vue/html-closing-bracket-spacing': ['error', {
-      endTag: 'never',
-      selfClosingTag: 'always',
-      startTag: 'never'
-    }],
-    'vue/html-indent': ['error', 2, {
-      alignAttributesVertically: true,
-      attribute: 1,
-      baseIndent: 1,
-      closeBracket: 0,
-      ignores: []
-    }],
+    'sort-keys': [
+      'warn',
+      'asc',
+      {
+        caseSensitive: false,
+        natural: true
+      }
+    ],
+    'vue/html-closing-bracket-newline': [
+      'error',
+      {
+        multiline: 'always',
+        singleline: 'never'
+      }
+    ],
+    'vue/html-closing-bracket-spacing': [
+      'error',
+      {
+        endTag: 'never',
+        selfClosingTag: 'always',
+        startTag: 'never'
+      }
+    ],
+    'vue/html-indent': [
+      'error',
+      2,
+      {
+        alignAttributesVertically: true,
+        attribute: 1,
+        baseIndent: 1,
+        closeBracket: 0,
+        ignores: []
+      }
+    ],
     'vue/html-quotes': 'error',
-    'vue/max-attributes-per-line': ['error', {
-      multiline: {
-        allowFirstLine: false,
-        max: 1
-      },
-      singleline: 2
-    }],
+    'vue/max-attributes-per-line': [
+      'error',
+      {
+        multiline: {
+          allowFirstLine: false,
+          max: 1
+        },
+        singleline: 2
+      }
+    ],
     'vue/mustache-interpolation-spacing': ['error', 'always'],
     'vue/name-property-casing': ['error', 'PascalCase'],
-    'vue/no-multi-spaces': ['error', {
-      ignoreProperties: false
-    }],
+    'vue/no-multi-spaces': [
+      'error',
+      {
+        ignoreProperties: false
+      }
+    ],
     'vue/no-spaces-around-equal-signs-in-attribute': ['error'],
     'vue/require-default-prop': ['warn'],
     'vue/require-prop-types': ['warn']
